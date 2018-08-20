@@ -23,7 +23,7 @@ void reset () {
 
 void clrscr () {                                     // Clear Screen
   printf ("\033[2J");     
-            }
+}
 
  
 static char input[100];
@@ -45,10 +45,11 @@ static int parseAndExecute()
       {
         if (strcasecmp(verb, "quit") == 0)
           {
-            clrscr ();
+	    printf("\a");
+	    clrscr ();
         	reset;     
 		return 0;
-  	}
+	  }
         else if (strcasecmp(verb, "look") == 0)
           {
             printf("I can't see a thing.\n");
@@ -57,53 +58,36 @@ static int parseAndExecute()
 	  }
         else if (strcasecmp(verb, "get") == 0)
           {
-            printf ("'%s' what?\n");
+            printf ("what?\n");
 	    //  executeget(noun);
 	  }
 	else if (strcasecmp(verb, "go") == 0)
 	  {  
-	   printf ("'%s' where?\n");
+	   printf ("where?\n");
 	  }
-	else if (strcasecmp(verb, "help") ==0)
-	  {
+	 if (strcasecmp(verb, "help") ==0)
 	   
+	    {
 	    red (); 
-	    printf ("get/n");
-	    printf ("go/n");
-	    printf ("look/n");
-	    printf ("quit/n");
+	    printf ("\tget\n");
+	    printf ("\tgo\n");
+	    printf ("\tlook\n");
+	    printf ("\tquit\n");
 	  }
 	    
 
 	  {
-	    printf ("'%s' Where");
+	    
 	      }
-	  {  
+      }      
 	  else 
-	    {
+	     {
             printf(" I don't know how to '%s'.\n", verb);
           }
-      }
       
-	  return  1;
+      
+	  return 1;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 int main ()  
@@ -116,4 +100,4 @@ int main ()
       clrscr ();
       return 0;
 
-  }}
+  }
