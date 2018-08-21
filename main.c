@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 //#include "location.h"
 void bred () {                                                         // Color Functions 
   printf("\033[1;31m");
@@ -45,6 +46,7 @@ static int parseAndExecute()
       {
         if (strcasecmp(verb, "quit") == 0)
           {
+	    system("~/TextBasedAdventure/./beep.sh");
 	    printf("\a");
 	    clrscr ();
         	reset;     
