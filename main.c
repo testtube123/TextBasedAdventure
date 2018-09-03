@@ -1,7 +1,8 @@
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-//#include "location.h"
+#include "location.h"
 void bred () {                                                         // Color Functions 
   printf("\033[1;31m");
 }
@@ -55,18 +56,18 @@ static int parseAndExecute()
         else if (strcasecmp(verb, "look") == 0)
           {
             printf("I can't see a thing.\n");
-	    
-	    //	    executeLook(noun);
+	    executeLook(noun);
 	  }
         else if (strcasecmp(verb, "get") == 0)
           {
             printf ("what?\n");
-	    //  executeget(noun);
+	      executeget(noun);
 	  }
 	else if (strcasecmp(verb, "go") == 0)
 	  {  
 	   printf ("where?\n");
-	  }
+	   executeGo(noun);
+}
 	 if (strcasecmp(verb, "help") ==0)
 	   
 	    {
