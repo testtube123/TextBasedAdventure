@@ -6,9 +6,9 @@ struct location {
       const char *tag;
 }
 
-locs[] = {
-	  {"a cold steel bed", "steel bed"},
-	  {"a dark room", "dark room"},
+locs[] = { 
+	   {"a cold steel bed", "steel_bed"},
+	  {"a dark room", "dark_room"},
 	  {"a brightly lit hallway", "brightly lit hallway"}
 };
 
@@ -43,14 +43,13 @@ void executeGo(const char *noun)
 	}
 	   else
 	 {
-	   printf("OK.\n");
 	   locationOfPlayer = i;
 	   executeLook("around");
 	   }
 	   return;
 	    }
               }
-            printf("Where do you want me to go?\n");
+          
 	       }
 
-	      
+                 

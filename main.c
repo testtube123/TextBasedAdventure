@@ -1,7 +1,6 @@
 
 #include <stdio.h>
 #include <string.h>
-#include <stdlib.h>
 #include "location.h"
 void bred () {                                                         // Color Functions 
   printf("\033[1;31m");
@@ -30,9 +29,9 @@ void clrscr () {                                     // Clear Screen
  
 static char input[100];
 
-static int getInput()
+static int getInput() 
 {
-  bred();
+bred();
   printf("\n<Enter Command> ");
   bwhite();
   return fgets(input, sizeof(input), stdin) != NULL;
@@ -42,15 +41,12 @@ static int getInput()
 static int parseAndExecute()
 {
   char *verb = strtok(input, " \n");
-    char *noun = strtok(NULL, "\n ");
+    char *noun = strtok(NULL, " \n");
     if (verb != NULL)
       {
         if (strcasecmp(verb, "quit") == 0)
           {
-	    system("~/TextBasedAdventure/./beep.sh");
-	    printf("\a");
-	    clrscr ();
-        	reset;     
+	    clrscr ();     
 		return 0;
 	  }
         else if (strcasecmp(verb, "look") == 0)
@@ -61,14 +57,19 @@ static int parseAndExecute()
         else if (strcasecmp(verb, "get") == 0)
           {
             printf ("what?\n");
-	      executeget(noun);
 	  }
 	else if (strcasecmp(verb, "go") == 0)
 	  {  
 	   printf ("where?\n");
 	   executeGo(noun);
 }
-	 if (strcasecmp(verb, "help") ==0)
+	 
+if (strcasecmp(verb,"cls") == 0)
+{
+clrscr ();
+}
+
+if (strcasecmp(verb, "help") ==0)
 	   
 	    {
 	    red (); 
@@ -93,13 +94,13 @@ static int parseAndExecute()
 }
 
 
-int main ()  
-  {
+int main ()    
+{
     printf ("You wake up in a dark room on a cold steel bed. You don't remeber much of anything,and don't know how you got here.\n");
     printf ("You can't see a thing.\n");
-  while (getInput() && parseAndExecute())
+    while (getInput() && parseAndExecute())
     ;
-  //  executeLook("around");
+    executeLook("around");
       clrscr ();
       return 0;
 
